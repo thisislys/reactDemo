@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg{
+        background: blue;
+        color:#fff;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+<script type='text/babel'>
+    let {Component}=React;
+class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            list:
+                {'小学':['一年级','二年级','三年级','四年级','五年级','六年级'],
+                '初中':['初一','初二','初三'],
+                '高中':['高一','高二','高三'],
+                '大学':['大一','大二','大三','大四']}
+                ,
+                defaultIndex:0
+        }
+    }
+    render() {
+        const {list,defaultIndex}=this.state;
+        return (
+            <div>
+                {
+                    Object.keys(list).map((v,i)=>(
+                        <b onClick={()=>{
+                            this.setState({
+                                defaultIndex:i 
+                            })
+                        }} key={i} className={defaultIndex===i?'bg':''}>{v}</b>
+                    ))
+                }
+                <Con lists={Object.values(list)[defaultIndex]}/>
+            </div>
+        );
+    }
+}
+class Con extends Component {
+    render() {
+        return (
+            <ul>
+                {
+                    this.props.lists.length&&this.props.lists.map(v=>(
+                        <li key={v}>{v}</li>
+                    ))
+                }
+            </ul>
+        );
+    }
+}
+
+ ReactDOM.render(<Index/>,document.getElementById('app'));
+</script>
+
+</html>

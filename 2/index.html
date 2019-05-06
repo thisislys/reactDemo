@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+<script type='text/babel'>
+    class App extends React.Component{
+        constructor() {
+            super();
+            this.state={
+                list:
+                    {
+                        type:"ul",
+                        props:{
+                            id:"ul"
+                        },
+                        children:[
+                            {
+                                type:'li',
+                                name:'第一个li',
+                                props:{
+                                    className:'one'
+                                },
+                                children:[
+                                    {
+                                        type:"span",
+                                        name:'第一个li下的span',
+                                        children:[
+                                            {type:'a',name:'我是a'}
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                type:'li',
+                                name:'第二个li',
+                                props:{
+                                    id:'li'
+                                },
+                                children:[
+                                    {    
+                                        type:"span",
+                                        name:'第二个li下的span'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                
+            }
+        }
+
+
+        myEelment(list){
+            return React.createElement(
+                list.type,
+                {...list.props},
+                list.children
+                ?
+                list.children.map((v,i)=>(
+                    <div key={i} style={{marginLeft:'20px'}}>{list.name}{this.myEelment(v)}</div>
+                ))
+                :
+                <div style={{marginLeft:'20px'}}>{list.name}</div>
+            )
+        }
+        render(){
+            let {list}=this.state;
+            return <div>{this.myEelment(list)}</div>
+        }
+    }
+    ReactDOM.render(
+        <App/>,
+        document.getElementById('app')
+    );
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+<script type='text/babel'>
+    let {Component}=React;
+    var list2
+    class Index extends Component {
+        constructor(props) {
+            super(props);
+            this.state={
+                flag:true,
+                list:'',
+                list2:[]
+            }
+        }
+  
+        inputValue=(e)=>{
+                list2=[...this.state.list2,e.target.value];
+                this.setState(
+                    {
+                        list:e.target.value
+                    }
+                )
+        }
+        render() {
+            const {list,flag}=this.state;
+            return (
+                <div>
+                    <input type="text" onChange={(e)=>this.inputValue(e)} value={list} ref={ref=>this.text=ref}/>
+                    <input type="button" onClick={this.getValue} value="提交"/>
+                     {
+                        flag?<div><List ref={ref=>this.lists=ref}/><List2  list2={this.state.list2}/></div>:null
+                    }
+                       
+                </div>
+            );
+            
+        }
+        getValue=()=>{
+            let value=this.text.value;
+            this.text.value==='销毁'?
+            this.setState({
+                flag:false
+            }):null
+            setTimeout(()=>{
+                this.setState({
+                    list2:[...this.state.list2,list2]
+                })
+                 this.lists&&(this.lists.lists.value=this.text.defaultValue);
+                 this.text.value=''
+            },500)
+        }
+    }
+    class List extends Component {
+        render() {
+            return (
+                <div>
+                    <textarea ref={ref=>this.lists=ref}>
+                        
+                    </textarea>
+                    
+                </div>
+            );
+        }
+    }
+
+    function List2(list){
+        let lists=Array.from(list.list2)
+        return (
+            <div>
+                <ul>
+                    {
+                        lists.length?lists.map((v,i)=>(
+                         <li key={i}>{v}</li>
+                        )):null
+                    }
+                </ul>
+            </div>
+        );
+    }
+
+    ReactDOM.render(<Index/>,document.getElementById('app'));
+</script>
+
+</html>

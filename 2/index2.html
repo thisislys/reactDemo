@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Money {
+        static add(obj, obj1) {
+            return obj.number + obj1.number
+        }
+        constructor(number) {
+            this.number = number;
+        }
+        add(obj) {
+            return this.number + obj.number
+        }
+        valueOf() {
+            return this.number
+        }
+        toString() {
+            return this.number
+        }
+    }
+    let one = new Money(105);
+    let two = new Money(66);
+    let three = one.add(two);
+    let four = Money.add(one, two);
+    let five = new Money(one + two);
+    console.log(`${three} ${four} ${five}`)
+</script>
+
+</html>

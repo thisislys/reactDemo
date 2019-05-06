@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let div = {
+        name: 'div',
+        props: {
+            id: 'box',
+            style: {
+                color: 'orange'
+            }
+        },
+        connect: ['我是div', {
+            name: 'p',
+            props: {
+                id: "p",
+                style: {
+                    color: "green"
+                }
+            },
+            connect: ["我是p标签"]
+        }]
+    }
+
+    function creactElement(obj) {
+        let {
+            name,
+            props,
+            connect
+        } = obj;
+        const element = document.createElement(name);
+        Object.keys(props).forEach((v, i) => {
+            if (v === 'style') {
+                Object.keys(props[v]).forEach(item => {
+                    element.style[item] = props.style[item];
+                })
+            } else {
+                element.setAttribute(v, props[v])
+            }
+        })
+        connect.forEach((v, i) => {
+            if (typeof v === 'string') {
+                let newText = document.createTextNode(v);
+                element.appendChild(newText)
+            } else {
+                element.appendChild(creactElement(v))
+            }
+        })
+        return element;
+    }
+    document.body.appendChild(creactElement(div))
+</script>
+
+</html>

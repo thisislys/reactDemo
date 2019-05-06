@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+<script type='text/babel'>
+    let {Component}=React;
+    var timer;
+    class Index extends Component {
+        constructor(props) {
+            super(props);
+            this.state={
+                msg:"我是msg",
+                flag:true
+            }
+        }
+
+        componentWillMount() {
+            console.log('componentWillMount');//1
+        }
+
+        componentDidMount() {
+            console.log('componentDidMount')//5
+        }
+
+        // componentWillReceiveProps(nextProps) {
+        //     console.log('componentWillReceiveProps',nextProps)
+        // }
+
+        shouldComponentUpdate(nextProps, nextState) {
+            console.log('shouldComponentUpdate',nextProps,nextState,1);//6
+            return true;
+            // return false;
+        }
+
+        componentWillUpdate(nextProps, nextState) {
+            console.log('componentWillUpdate',nextProps,nextState,2)//7
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+            console.log('componentDidUpdate',prevProps, prevState,3)//10
+        }
+
+
+        setMsg(){
+           timer=setTimeout(() => {
+                this.setState(()=>{
+                    return   {
+                        msg:"我是新的msg",
+                        flag:false
+                    }
+                })
+            }, 3000);
+        }
+        render() {
+            console.log('render1')//2//8
+            let {msg,flag}=this.state;
+            !timer&&this.setMsg();
+            return (
+                <div>
+                    {
+                        flag&&<MyComp msg={msg}/>
+                    }
+                </div>
+            );
+        }
+    }
+    class MyComp extends Component {
+        constructor(props) {
+            super(props);
+            this.state={
+                msg:props.msg
+            }
+        }
+        componentDidUpdate(prevProps, prevState,number) {
+            console.log(prevProps,'componentDidUpdate', prevState,number)
+        }
+        static getDerivedStateFromProps(nextProps,prevState){
+            console.log(nextProps, 'getDerivedStateFromProps',prevState);//3
+            if(nextProps.msg!==prevState.msg){
+                return {
+                    msg:nextProps.msg
+                }
+            }else{
+                return null
+            }
+        }
+        getSnapshotBeforeUpdate(prevProps,prevState){
+            console.log(prevProps, 'getSnapshotBeforeUpdate',prevState);
+            return 888
+        }
+        render() {
+            console.log('render2');//4
+            let {msg}=this.state;
+            return (
+                <div>
+                    {msg}
+                </div>
+            );
+        }
+        componentWillUnmount(){
+            console.log('componentWillUnmount2')//9
+        }
+    }
+    
+    ReactDOM.render(<Index/>,document.getElementById('app'));
+
+</script>
+
+</html>

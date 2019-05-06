@@ -1,0 +1,145 @@
+[{
+    "id": 1,
+    "type": "hot",
+    "title": "热门推荐",
+    "collection": [{
+        "name": "手机",
+        "price": 10,
+        "tit": "OPPO K1 光感屏幕指纹 水滴屏拍照手机",
+        "img": "//img14.360buyimg.com/focus/s140x140_jfs/t27136/183/1628977274/31007/a6f7ed55/5be6ebd8Nb07ef492.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "加湿器",
+        "price": 3,
+        "tit": "飞利浦（PHILIPS）空气加湿器上加水纳米无雾",
+        "img": "//img14.360buyimg.com/focus/s140x140_jfs/t27556/69/2092685225/14211/7250ea85/5bf7af60Nd4e326e1.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "电磁炉",
+        "price": 395,
+        "tit": " 家用茶炉智能光波电池炉台式爆炒正品H22-X2",
+        "img": "//img12.360buyimg.com/focus/s140x140_jfs/t28390/329/576939433/22816/28929acf/5bf7af67N2a275d6a.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "U盘",
+        "price": 4,
+        "tit": "U301经典隼系列白色原厂颗粒",
+        "img": "//img11.360buyimg.com/focus/s140x140_jfs/t28165/350/566757632/14607/749ad0f9/5bf7af77N4c2c0986.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "华为",
+        "price": 2000,
+        "tit": "HUAWEI华为畅享93GB+32GB",
+        "img": "//img30.360buyimg.com/focus/s140x140_jfs/t1/1446/14/631/8500/5b9237e5E0d1f9e16/b1a627b92323b5ed.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "电热毯",
+        "price": 1.5,
+        "tit": "双电褥子双双控双温",
+        "img": "//img30.360buyimg.com/focus/s140x140_jfs/t29599/234/579251680/28438/c901f95e/5bf7b1c2Ne8b1eb0f.png",
+        "count": 0,
+        "isCheck": false
+    }]
+}, {
+    "id": 2,
+    "type": "computer",
+    "title": "电脑",
+    "collection": [{
+        "name": "轻薄本",
+        "price": 8000,
+        "tit": "电脑3ACD@i5-8250u",
+        "img":"//img13.360buyimg.com/focus/s140x140_jfs/t11071/195/2462134264/9117/cd0688bf/5a17ba79N18b9f3d4.png",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "游戏本",
+        "price": 3000,
+        "img":"//img30.360buyimg.com/focus/s140x140_jfs/t11155/36/2330310765/10690/eb6754c3/5a17ba96N49561fea.png",
+        "tit": "荣耀MagicBook14英寸轻薄窄边框笔记本电脑",
+        "count": 0,
+        "isCheck": false
+    },{
+        "name": "游戏台式机",
+        "price": 200,
+        "img":"//img10.360buyimg.com/focus/s140x140_jfs/t12865/295/960489437/5723/4f38f11/5a17ba8bN911b7264.jpg",
+        "tit": "联想ThinkPad翼480",
+        "count": 0,
+        "isCheck": false
+    }]
+}, {
+    "id": 3,
+    "type": "cosmetics",
+    "title": "化妆品",
+    "collection": [{
+        "name": "雅诗兰黛",
+        "price": 200,
+        "tit": "玉兰油OLAY面霜多效修护50g",
+        "img":"//img30.360buyimg.com/focus/s140x140_jfs/t19531/110/2538137867/14848/c3ec84ac/5afd3cc5N8aa4b7c8.jpg",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "欧莱雅",
+        "price": 139,
+        "tit": "欧莱雅复颜玻尿酸7日安瓶精华",
+        "img":"//img10.360buyimg.com/focus/s140x140_jfs/t19759/351/2599036909/13944/24601ad4/5afd3d66Nbb817b81.jpg",
+        "count": 0,
+        "isCheck": false
+    }]
+}, {
+    "id": 4,
+    "type": "MenShoes",
+    "title": "男鞋",
+    "collection": [{
+        "name": "休闲鞋",
+        "price": 200,
+        "tit": "卡帝乐鳄鱼休闲鞋",
+        "img":"//img12.360buyimg.com/focus/s140x140_jfs/t12970/248/784792784/3062/9cc4be84/5a13957cN60262247.jpg",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "皮鞋",
+        "price": 479,
+        "tit": "七匹狼男鞋系带正装鞋商务休闲",
+        "img":"//img12.360buyimg.com/focus/s140x140_jfs/t11089/341/2234800375/3425/8950afe8/5a139577N054caadb.jpg",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "男靴",
+        "price": 178,
+        "tit": "冬季布洛克马丁靴男高帮皮鞋英伦真皮靴子",
+        "img":"//img14.360buyimg.com/focus/s140x140_jfs/t13225/243/786727983/5634/d19769f6/5a139554N4c666839.jpg",
+        "count": 0,
+        "isCheck": false
+    }]
+}, {
+    "id": 5,
+    "type": "clothes",
+    "title": "女装",
+    "collection": [{
+        "name": "百思寒2018",
+        "price": 998,
+        "tit": "韩版立领长款修身外套",
+        "img":"//img13.360buyimg.com/focus/s140x140_jfs/t16828/262/724741631/2535/ba1020b7/5a9fb675N29136079.jpg",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "茵曼（INMAN",
+        "price": 479,
+        "tit": "2018冬装新款少女风文艺印花",
+        "img":"//img30.360buyimg.com/focus/s140x140_jfs/t16891/72/715748110/3080/182127b5/5a9fb67aN37c4848f.jpg",
+        "count": 0,
+        "isCheck": false
+    }, {
+        "name": "鸭鸭（YAYA）",
+        "price": 178,
+        "tit": "羽绒服女中长款连帽时尚修身",
+        "img":"//img10.360buyimg.com/n2/s370x370_jfs/t24757/16/1582535176/204447/c1175c10/5bb5855eN57748950.jpg!q70.jpg",
+        "count": 0,
+        "isCheck": false
+    }]
+}]

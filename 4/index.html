@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/7.0.0-beta.3/babel.js"></script>
+<script type='text/babel'>
+    let {Component}=React;
+    var timer;
+        class Index extends Component {
+            constructor(props) {
+                super(props);
+                this.state={
+                    container_1:"我是内容1",
+                    container_2:"我是内容2"
+                }
+                this.parents1=React.createRef();
+            }
+            changeState(){
+                timer=setTimeout(() => {
+                    this.setState(()=>{
+                        return {
+                            container_1:"我是change后的内容1"
+                        }
+                    })
+                }, 2000);
+            }
+            render() {
+                let {container_1,container_2}=this.state;
+                !timer&&this.changeState()
+                return (
+                    <div>
+                        <div ref="div">我是父组件1</div>
+                        <div ref={this.parents1}>我是父组件2</div>
+                        <div ref={ref=>this.parents2=ref}>我是父组件3</div>
+                        <MyRef container={container_1} ref={ref=>this.children=ref}/>
+                        <MyRef container={container_2}/>
+                    </div>
+                );
+            }
+            componentDidMount(){
+                const el=ReactDOM.findDOMNode(this);
+                setTimeout(() => {
+                    const un=ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+                    console.log(un)
+                }, 3000);
+                
+                console.log(this.refs.div)
+                console.log(this.parents1.current)
+                console.log(this.parents2)
+                console.log(this.children.child1.current)
+                console.log(this.children.child2)
+                console.log(this.children.refs.child)
+                console.log(el)
+            }
+        }
+        class MyRef extends Component {
+            constructor(props){
+                super(props)
+                this.child1=React.createRef();
+            }
+            shouldComponentUpdate(nextProps,nextState){
+                return nextProps.container!==this.props.container
+            }
+            render() {
+                let {container}=this.props;
+                return (
+                    <div>
+                        <div ref="child">我是子组件1</div>
+                        <div ref={this.child1}>我是子组件2</div>
+                        <div ref={ref=>this.child2=ref}>我是子组件3</div>
+                        <div>{container}</div>
+                    </div>
+                );
+            }
+            componentDidMount(){
+                console.log(this.refs.child)
+                console.log(this.child1.current)
+                console.log(this.child2)
+            }
+        }
+    ReactDOM.render(<Index/>,document.getElementById('app'));
+</script>
+
+</html>

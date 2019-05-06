@@ -1,0 +1,33 @@
+body {
+    font-size: 12px;
+}
+
+.wraper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: -webkit-flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #5cb85c;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+.content {
+    -webkit-flex: 1;
+    position: relative;
+}
+
+
+.navbar-active{
+    color: #31c27c;
+    border-bottom: 1px solid #31c27c
+}
